@@ -10,11 +10,13 @@ public class PowerUpSpeedUp : PowerUpBase {
     protected override void StartPowerUp() {
         base.StartPowerUp();
         PlayerController.Instance.PowerUpSpeedUp(amountToSpeedUp);
+        PlayerController.Instance.SetPowerUpText("Speed Up");
     }
 
     protected override void EndPowerUp() {
         base.EndPowerUp();
         PlayerController.Instance.ResetSpeed();
+        PlayerController.Instance.SetPowerUpText("");
     }
     
     
