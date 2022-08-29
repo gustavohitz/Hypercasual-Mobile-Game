@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ebac.Core.Singleton;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : Singleton<PlayerController> {
 
     [Header("Lerp")]
     public Transform target;
@@ -15,6 +16,11 @@ public class PlayerController : MonoBehaviour {
 
     private Vector3 _pos;
     private bool _canRun;
+    private float _currentSpeed;
+
+    void Start() {
+        ResetSpeed();
+    }
    
     void Update() {
         if(!_canRun) {
@@ -25,8 +31,8 @@ public class PlayerController : MonoBehaviour {
         _pos.y = transform.position.y;
         _pos.z = transform.position.z;
 
-        transform.Translate(transform.forward * speed * Time.deltaTime);
         transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
+        transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
     }
 
     void OnCollisionEnter(Collision other) {
@@ -47,4 +53,14 @@ public class PlayerController : MonoBehaviour {
     public void StartRunning() {
         _canRun = true;
     }
+
+    #region POWERUPS
+    public void PowerUpSpeedUp(float f) {
+        _currentSpeed = f;
+    }
+
+    public void ResetSpeed() {
+        _currentSpeed = speed;
+    }
+    #endregion
 }

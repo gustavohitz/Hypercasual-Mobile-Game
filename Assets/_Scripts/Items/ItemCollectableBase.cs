@@ -26,7 +26,9 @@ public class ItemCollectableBase : MonoBehaviour {
         }
     }
     protected virtual void Collect() {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+
+        graphicItem.SetActive(false);
         OnCollect();
     }
 
