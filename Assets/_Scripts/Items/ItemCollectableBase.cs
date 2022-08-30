@@ -25,10 +25,15 @@ public class ItemCollectableBase : MonoBehaviour {
             //hudBase.UIUpdate();
         }
     }
+    protected virtual void HideItems() {
+        if(graphicItem != null) {
+            graphicItem.SetActive(false);
+        }
+    }
     protected virtual void Collect() {
         //Destroy(gameObject);
 
-        graphicItem.SetActive(false);
+        HideItems();
         OnCollect();
     }
 
