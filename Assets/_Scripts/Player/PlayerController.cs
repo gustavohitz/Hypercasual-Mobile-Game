@@ -30,6 +30,7 @@ public class PlayerController : Singleton<PlayerController> {
     private float _currentSpeed;
     private bool _invincible = false;
     private Vector3 _startPosition;
+    private float _baseAnimationSpeed = 7f;
 
     void Start() {
         _startPosition = transform.position;
@@ -74,7 +75,7 @@ public class PlayerController : Singleton<PlayerController> {
     }
     public void StartRunning() {
         _canRun = true;
-        animatorManager.Play(AnimatorManager.AnimationType.RUN);
+        animatorManager.Play(AnimatorManager.AnimationType.RUN, _currentSpeed / _baseAnimationSpeed);
     }
 
     #region POWERUPS

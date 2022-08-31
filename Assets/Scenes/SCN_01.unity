@@ -660,6 +660,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256959693}
   m_CullTransparentMesh: 1
+--- !u!114 &384451177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 669829959541458708, guid: 89e20167823a30d459856414377997d1, type: 3}
+  m_PrefabInstance: {fileID: 2267750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 855390568063049f3b70ee2ff38c7b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &402335532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1346,12 +1357,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1408201914}
   lerpSpeed: 9
-  speed: 5
+  speed: 7
   tagToCheckEnemy: Enemy
   tagToCheckEndLine: EndLine
   endScreen: {fileID: 2079595101}
   uiTextPowerUp: {fileID: 1722420341}
   coinCollector: {fileID: 650466196}
+  animatorManager: {fileID: 384451177}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1499,6 +1511,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 13171be21def24eed9451256ac92ddda, type: 3}
       propertyPath: m_Name
       value: MDL_Astronaut Legacy
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 13171be21def24eed9451256ac92ddda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2223639932434330405, guid: 13171be21def24eed9451256ac92ddda, type: 3}
       propertyPath: m_Animation
