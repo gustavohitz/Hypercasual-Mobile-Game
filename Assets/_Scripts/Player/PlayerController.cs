@@ -22,6 +22,9 @@ public class PlayerController : Singleton<PlayerController> {
     [Header("Coin Collector")]
     public GameObject coinCollector;
 
+    [Header("Animation")]
+    public AnimatorManager animatorManager;
+
     private Vector3 _pos;
     private bool _canRun;
     private float _currentSpeed;
@@ -49,7 +52,8 @@ public class PlayerController : Singleton<PlayerController> {
     void OnCollisionEnter(Collision other) {
         if(other.transform.tag == tagToCheckEnemy) {
             if(!_invincible) {
-                EndGame();
+                MoveForward(other.transform);
+                EndGame(AnimatorManager.AnimationType.DEAD);
             }    
         }
     }
@@ -59,12 +63,18 @@ public class PlayerController : Singleton<PlayerController> {
         }
     }
 
-    private void EndGame() {
+    private void MoveForward(Transform t) {
+        t.DOMoveZ(1f, .3f).SetRelative();
+    }
+
+    private void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.IDLE) {
         _canRun = false;
         endScreen.SetActive(true);
+        animatorManager.Play(animationType);
     }
     public void StartRunning() {
         _canRun = true;
+        animatorManager.Play(AnimatorManager.AnimationType.RUN);
     }
 
     #region POWERUPS
