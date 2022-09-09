@@ -13,13 +13,13 @@ public class LevelManager : MonoBehaviour {
     private List<LevelPieceBase> _spawnedPieces = new List<LevelPieceBase>();
     private LevelPieceBaseSetup _currSetup;
 
-    void Awake() {
+    void Start() {
         //SpawnNextLevel();
         CreateLevelPieces();
     }
     void Update() {
         if(Input.GetKeyDown(KeyCode.D)) {
-            SpawnNextLevel();
+            CreateLevelPieces();
         }
     }
 
@@ -92,6 +92,7 @@ public class LevelManager : MonoBehaviour {
         for(int i = _spawnedPieces.Count - 1; i >= 0; i--) {
             Destroy(_spawnedPieces[i].gameObject);
         }
+        _spawnedPieces.Clear();
     }
     #endregion
   
