@@ -25,6 +25,8 @@ public class PlayerController : Singleton<PlayerController> {
     [Header("Animation")]
     public AnimatorManager animatorManager;
 
+    [SerializeField] private BounceHelper _bounceHelper;
+
     private Vector3 _pos;
     private bool _canRun;
     private float _currentSpeed;
@@ -76,6 +78,12 @@ public class PlayerController : Singleton<PlayerController> {
     public void StartRunning() {
         _canRun = true;
         animatorManager.Play(AnimatorManager.AnimationType.RUN, _currentSpeed / _baseAnimationSpeed);
+    }
+
+    public void Bounce() {
+        if(_bounceHelper != null) {
+            _bounceHelper.Bounce();
+        }
     }
 
     #region POWERUPS

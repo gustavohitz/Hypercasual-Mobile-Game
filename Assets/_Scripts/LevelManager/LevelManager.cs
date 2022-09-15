@@ -73,6 +73,7 @@ public class LevelManager : MonoBehaviour {
         }
 
         ColorManager.Instance.ChangeColorByType(_currSetup.artType);
+        
         StartCoroutine(ScalePiecesByTime());
     }
 
@@ -87,6 +88,8 @@ public class LevelManager : MonoBehaviour {
             _spawnedPieces[i].transform.DOScale(1, scaleDuration).SetEase(ease);
             yield return new WaitForSeconds(scaleTimeBetweenPieces);
         }
+
+        CoinAnimatorManager.Instance.StartAnimations();
     }
     private void CreateLevelPiece(List<LevelPieceBase> list) {
         var piece = list[Random.Range(0, list.Count)];
