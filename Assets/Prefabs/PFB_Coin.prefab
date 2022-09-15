@@ -66,6 +66,7 @@ MonoBehaviour:
   collider: {fileID: 2020422625973294421}
   collect: 0
   lerp: 5
+  minDistance: 1
 --- !u!1 &6470807450253374195
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,6 +78,7 @@ GameObject:
   - component: {fileID: 7793842937920692785}
   - component: {fileID: 8892863020754281593}
   - component: {fileID: 3034802418507548000}
+  - component: {fileID: 5745490889953940913}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -147,3 +149,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5745490889953940913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470807450253374195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32b930b4d4a74b61ac184e90dbd5897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 3034802418507548000}
+  duration: 1
+  startColor: {r: 1, g: 1, b: 1, a: 1}
