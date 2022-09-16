@@ -536,6 +536,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2336065473589269546}
     m_Modifications:
+    - target: {fileID: 40532218921161364, guid: 3e26911332b6243cc9ee5329c1b12363, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40532218921161364, guid: 3e26911332b6243cc9ee5329c1b12363, type: 3}
+      propertyPath: CollisionModule.m_Planes.Array.data[0]
+      value: 
+      objectReference: {fileID: 7168744274125721646}
     - target: {fileID: 2020422625973294419, guid: 3e26911332b6243cc9ee5329c1b12363, type: 3}
       propertyPath: m_Name
       value: PFB_Coin (14)
@@ -727,6 +735,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2336065473589269546}
     m_Modifications:
+    - target: {fileID: 40532218921161364, guid: 3e26911332b6243cc9ee5329c1b12363, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40532218921161364, guid: 3e26911332b6243cc9ee5329c1b12363, type: 3}
+      propertyPath: CollisionModule.m_Planes.Array.data[0]
+      value: 
+      objectReference: {fileID: 7168744274125721646}
     - target: {fileID: 2020422625973294419, guid: 3e26911332b6243cc9ee5329c1b12363, type: 3}
       propertyPath: m_Name
       value: PFB_Coin (12)
@@ -863,6 +879,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2336065473589269546}
     m_Modifications:
+    - target: {fileID: 40532218921161364, guid: 3e26911332b6243cc9ee5329c1b12363, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40532218921161364, guid: 3e26911332b6243cc9ee5329c1b12363, type: 3}
+      propertyPath: CollisionModule.m_Planes.Array.data[0]
+      value: 
+      objectReference: {fileID: 7168744274125721646}
     - target: {fileID: 2020422625973294419, guid: 3e26911332b6243cc9ee5329c1b12363, type: 3}
       propertyPath: m_Name
       value: PFB_Coin (13)

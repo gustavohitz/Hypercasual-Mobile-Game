@@ -9,13 +9,14 @@ public class ItemCollectableBase : MonoBehaviour {
     //public HUDBase hudBase;
     public ParticleSystem particleSystem;
     public GameObject graphicItem;
+    public float delayToDestroy = 2f;
 
     [Header("Sounds")]
     public AudioSource audioSource;
 
     void Awake() {
         if(particleSystem != null) {
-            particleSystem.transform.SetParent(null);
+            //particleSystem.transform.SetParent(null);
         }
     }
 
@@ -31,7 +32,7 @@ public class ItemCollectableBase : MonoBehaviour {
         }
     }
     protected virtual void Collect() {
-        //Destroy(gameObject);
+        Destroy(particleSystem.gameObject, delayToDestroy);
 
         HideItems();
         OnCollect();
@@ -39,6 +40,7 @@ public class ItemCollectableBase : MonoBehaviour {
 
     protected virtual void OnCollect() {
         if(particleSystem != null) {
+            particleSystem.transform.SetParent(null);
             particleSystem.Play();
         }
 
