@@ -17,6 +17,9 @@ public class PlayerController : Singleton<PlayerController> {
     public GameObject endScreen;
     [Header("Text")]
     public TextMeshPro uiTextPowerUp;
+
+    [Header("Limits")]
+    public float limit = 4f;
     
     
     [Header("Coin Collector")]
@@ -27,6 +30,7 @@ public class PlayerController : Singleton<PlayerController> {
 
     [Header("Particle System")]
     public ParticleSystem vfxDeath;
+    public ParticleSystem youWinParticles;
 
     [SerializeField] private BounceHelper _bounceHelper;
 
@@ -51,6 +55,13 @@ public class PlayerController : Singleton<PlayerController> {
         _pos.y = transform.position.y;
         _pos.z = transform.position.z;
 
+        if(_pos.x < -limit) {
+            _pos.x = -limit;
+        }
+        else if(_pos.x > limit) {
+            _pos.x = limit;
+        }
+
         transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
         transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
     }
@@ -60,12 +71,16 @@ public class PlayerController : Singleton<PlayerController> {
             if(!_invincible) {
                 MoveForward(other.transform);
                 EndGame(AnimatorManager.AnimationType.DEAD);
-            }    
+            }
+            if(vfxDeath != null) {
+                vfxDeath.Play();
+            }   
         }
     }
     void OnTriggerEnter(Collider other) {
         if(other.transform.tag == tagToCheckEndLine) {
             EndGame();
+            YouWin();
         }
     }
 
@@ -77,14 +92,16 @@ public class PlayerController : Singleton<PlayerController> {
         _canRun = false;
         endScreen.SetActive(true);
         animatorManager.Play(animationType);
-        
-        if(vfxDeath != null) {
-            vfxDeath.Play();
-        }
     }
     public void StartRunning() {
         _canRun = true;
         animatorManager.Play(AnimatorManager.AnimationType.RUN, _currentSpeed / _baseAnimationSpeed);
+    }
+
+    public void YouWin() {
+        if(youWinParticles != null) {
+            youWinParticles.Play();
+        }
     }
 
     public void Bounce() {
